@@ -31,6 +31,30 @@
 ```bash
 $ npm install
 ```
+Com o banco de dados mysql, crie um banco de dados e siga para o .env e altere as informações de acordo com suas credenciais e o banco criado
+na variavel DATABASE_URL
+ex: DATABASE_URL="mysql://root:1234@127.0.0.1:3306/coin_viewer"
+
+adicione nesse arquivo a variavel jwt secret
+ex: JWT_SECRET="teste"
+
+com o banco criado rode o comando prisma
+npx prisma migrate dev
+
+e 
+
+npx ts-node prisma/seeds/seed.ts
+
+com isso o prisma esta pronto para ser utilizado e a conexão com o banco esta funcional.
+
+na pasta "docs insomnia" esta presente a exportação com todos os pontos de acesso do sistema, importe-as no insomnia e passe a utiliza-las
+para acessar algumas rotas é necessário ter o token bearer, ele é obtido fazendo login por uma rota presente no ambiente importado do insomnia
+
+e para acessar as rotas da api (getCoin e save) é necessario adicionar uma chave coinGecko nos headers da consulta
+dessa forma:
+
+header: x_cg_demo_api_key
+value: sua_chave
 
 ## Compile and run the project
 

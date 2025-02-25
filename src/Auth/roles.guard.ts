@@ -23,15 +23,15 @@ export class RolesGuard implements CanActivate {
       context.getHandler(),
     );
     if (!requiredRoles) {
-      return true; // No roles are required, allow access
+      return true;
     }
 
     const request = context.switchToHttp().getRequest();
-    const usuario = request.usuario; // Assuming the user is attached to the request by the JWT guard
+    const usuario = request.usuario;
 
     if (!requiredRoles.includes(usuario.funcao)) {
       throw new ForbiddenException(
-        'You do not have permission to access this resource',
+        'Você não tem permissão para acessar essa rota',
       );
     }
 

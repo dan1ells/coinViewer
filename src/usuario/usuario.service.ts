@@ -31,10 +31,9 @@ export class UsuarioService {
   }
 
   async show(id: number) {
-    console.log(id);
     const usuario = await this.prisma.usuario.findFirst({
       where: {
-        id: id,
+        id: Number(id),
       },
     });
 
@@ -106,7 +105,7 @@ export class UsuarioService {
   async update(id: number, data: UpdateUsuarioDTO) {
     const usuarioExists = await this.prisma.usuario.findUnique({
       where: {
-        id,
+        id: Number(id),
       },
     });
 
@@ -119,7 +118,7 @@ export class UsuarioService {
     return await this.prisma.usuario.update({
       data: user,
       where: {
-        id,
+        id: Number(id),
       },
     });
   }
@@ -127,7 +126,7 @@ export class UsuarioService {
   async remove(id: number) {
     return await this.prisma.usuario.delete({
       where: {
-        id,
+        id: Number(id),
       },
     });
   }
