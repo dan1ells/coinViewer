@@ -9,9 +9,10 @@ import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
 import { AuthMiddleware } from './middleware/auth.middleware';
 import { AuthModule } from './Auth/auth.module';
+import { CoinModule } from './coin/coin.module';
 
 @Module({
-  imports: [UsuarioModule, AuthModule],
+  imports: [UsuarioModule, AuthModule, CoinModule],
   controllers: [AppController],
   providers: [AppService],
 })

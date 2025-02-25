@@ -19,3 +19,15 @@ model Usuario {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Coin {
+  id                        Int     @id @default(autoincrement())
+  market_cap                String
+  var_24_horas              String
+  var_7_dias                String
+  valor_hist_mais_alto      String
+  valor_hist_mais_baixo     String
+  valor_atual               String
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}
